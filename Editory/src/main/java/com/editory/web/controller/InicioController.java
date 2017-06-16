@@ -50,4 +50,8 @@ public class InicioController {
 		return "redirect:/index.html";
 		
 	}
+	@RequestMapping("/recuerdo")
+	public String recuerdo(Model model){
+		return "recuerdo.html";
+	}
 }
