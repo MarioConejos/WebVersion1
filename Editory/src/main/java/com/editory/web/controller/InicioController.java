@@ -1,5 +1,9 @@
 package com.editory.web.controller;
 
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Random;
 
@@ -7,7 +11,15 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.dropbox.core.DbxException;
+import com.dropbox.core.DbxRequestConfig;
+import com.dropbox.core.v2.DbxClientV2;
+import com.dropbox.core.v2.files.FileMetadata;
+import com.dropbox.core.v2.files.UploadErrorException;
+import com.dropbox.core.v2.files.WriteMode;
 import com.editory.web.mail.EmailSender;
 
 @Controller
@@ -52,6 +64,40 @@ public class InicioController {
 	}
 	@RequestMapping("/recuerdo")
 	public String recuerdo(Model model){
-		return "recuerdo.html";
+		return "recuerdo";
+	}
+	
+	@RequestMapping("/subirArchivos")
+	public String subirArchivos(@RequestParam("dato") MultipartFile dato,
+            RedirectAttributes redirectAttributes){
+		System.out.println(dato.getName());
+		DbxClientV2 dbxClient;
+		DbxRequestConfig requestConfig;
+		requestConfig = new DbxRequestConfig("g3stj3fo1bw6wji");
+		dbxClient = new DbxClientV2(requestConfig, "X20MDsAeKYMAAAAAAAAAd2pijnx1RldL8bt_wtTm4HX3SZsOjJsH09_z12_JkSdD");
+		String dropboxPath = "/archivo.docx";
+		
+		
+		try (InputStream in = (dato.getInputStream())) {
+            FileMetadata metadata = dbxClient.files().uploadBuilder(dropboxPath)
+                .withMode(WriteMode.ADD)
+                .withClientModified(new Date())
+                .uploadAndFinish(in);
+
+            System.out.println(metadata.toStringMultiline());
+        } catch (UploadErrorException ex) {
+            System.err.println("Error uploading to Dropbox: " + ex.getMessage());
+            System.exit(1);
+        } catch (DbxException ex) {
+            System.err.println("Error uploading to Dropbox: " + ex.getMessage());
+            System.exit(1);
+        } catch (IOException ex) {
+            System.err.println("Error reading from file \"" + dato + "\": " + ex.getMessage());
+            System.exit(1);
+        }
+		
+		
+		
+		return "redirect:/index.html";
 	}
 }

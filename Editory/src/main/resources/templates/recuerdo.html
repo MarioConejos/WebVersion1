@@ -1,36 +1,40 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-<title>Administracion de Fincas</title>
+<title>Vídeo Recuerdo</title>
 <link rel="stylesheet" type="text/css" href="../static/css/layout.css"
-	th:href="@{/css/layout.css}" />
+	th:href="@{/css/layout.css}"></link>
 <meta charset="utf-8" />
 
 <script type="application/x-javascript">
 	
+	
+	
  addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
+
+
 
 </script>
 <!-- bootstrap-css -->
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css"
-	media="all" />
+	media="all"></link>
 <!--// bootstrap-css -->
 <!-- css -->
-<link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
+<link rel="stylesheet" href="css/style.css" type="text/css" media="all"></link>
 <!--// css -->
 <!-- font-awesome icons -->
-<link href="css/font-awesome.css" rel="stylesheet">
+<link href="css/font-awesome.css" rel="stylesheet"></link>
 <!-- //font-awesome icons -->
 <!-- font -->
 <link
 	href="//fonts.googleapis.com/css?family=Crimson+Text:400,400i,600,600i,700,700i"
-	rel="stylesheet">
+	rel="stylesheet"></link>
 <link
 	href="//fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i"
-	rel="stylesheet">
+	rel="stylesheet"></link>
 <link
 	href='//fonts.googleapis.com/css?family=Roboto+Condensed:400,700italic,700,400italic,300italic,300'
-	rel='stylesheet' type='text/css'>
+	rel='stylesheet' type='text/css'></link>
 <!-- //font -->
 <script src="js/jquery-1.11.1.min.js"></script>
 <script src="js/bootstrap.js"></script>
@@ -51,7 +55,7 @@
 
 
 
-<body>
+
 <body>
 	<!-- banner -->
 	<div class="banner">
@@ -72,7 +76,7 @@
 							<li><i class="fa fa-envelope" aria-hidden="true"></i> : <a
 								href="editoryweb@gmail.com">editoryweb@gmail.com</a></li>
 						</ul>
-						</p>
+
 					</div>
 					<div class="w3-header-bottom">
 						<div class="top-nav">
@@ -110,42 +114,47 @@
 				<div class="clearfix"></div>
 			</div>
 		</div>
-		
-		<div>
-		<input type="file" name="foto" accept="image/*">
+	</div>
+
+	<div>
+		<form  action="/subirArchivos" method="POST" enctype="multipart/form-data">
+			<h5>Mostrar todas las propiedades de esta comunidad</h5>
+			<input type="file" name="dato" accept="media_type"></input>
+			<input type="submit" name="subir" value="Sube los videos"></input>
+		</form>
+	</div>
+
+	<div class="trescajas ">
+		<div class="presupuesto">
+			<h2 class="centrado">Recopilación de videos</h2>
+			<h4 class="centrado">80€</h4>
 		</div>
-		
-		<div class="trescajas ">
-			<div class="presupuesto">
-				<h2 class="centrado">Recopilación de videos</h2>
-				<h4 class="centrado">80€</h4>
-			</div>
-			<div class="presupuesto">
-				<h2 class="centrado">Edición de video</h2>
-				<h4 class="centrado">105€</h4>
-				<p class="listado ">
-				<ul>
-					<li>Edición elaborada de vídeo</li>
-					<li>Sugerencias personales</li>
-					<li>Una revisión/hacer un cambio</li>
-					<li>Posibilidad de incluir fotos</li>
-				</ul>
-				<p>
-			</div>
-			<div class="presupuesto">
-				<h2 class="centrado">Edición premium</h2>
-				<h4 class="centrado">135€</h4>
-				<p class="listado">
-				<ul>
-					<li>Edición elaborada y totalmente personalizada del vídeo</li>
-					<li>Sugerencias personales</li>
-					<li>Tres revisiones/hacer tres cambios</li>
-					<li>Posibilidad de incluir fotos</li>
-					<li>Contacto continuo con el editor</li>
-					<li>Posibilidad de añadir nuevos vídeos durante la edición</li>
-				</ul>
-				<p>
-			</div>
+		<div class="presupuesto">
+			<h2 class="centrado">Edición de video</h2>
+			<h4 class="centrado">105€</h4>
+			<p class="listado ">
+			<ul>
+				<li>Edición elaborada de vídeo</li>
+				<li>Sugerencias personales</li>
+				<li>Una revisión/hacer un cambio</li>
+				<li>Posibilidad de incluir fotos</li>
+			</ul>
+			</p>
 		</div>
+		<div class="presupuesto">
+			<h2 class="centrado">Edición premium</h2>
+			<h4 class="centrado">135€</h4>
+			<p class="listado">
+			<ul>
+				<li>Edición elaborada y totalmente personalizada del vídeo</li>
+				<li>Sugerencias personales</li>
+				<li>Tres revisiones/hacer tres cambios</li>
+				<li>Posibilidad de incluir fotos</li>
+				<li>Contacto continuo con el editor</li>
+				<li>Posibilidad de añadir nuevos vídeos durante la edición</li>
+			</ul>
+			</p>
+		</div>
+	</div>
 </body>
 </html>
