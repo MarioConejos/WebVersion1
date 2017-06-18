@@ -2,8 +2,8 @@
 
 <head>
 <title>Vídeo Recuerdo</title>
-<link rel="stylesheet" type="text/css" href="../static/css/layout.css"
-	th:href="@{/css/layout.css}"></link>
+<link rel="stylesheet" type="text/css" href="../static/css/style.css"
+	th:href="@{/css/style.css}"></link>
 <meta charset="utf-8" />
 
 <script type="application/x-javascript">
@@ -47,6 +47,11 @@
 			}, 1000);
 		});
 	});
+	// When the user clicks on div, open the popup
+	 function popUpRecuerdo() {
+	     var popup = document.getElementById("myPopup");
+	     popup.classList.toggle("show");
+	 }
 </script>
 
 
@@ -120,7 +125,8 @@
 		<form  action="/subirArchivos" method="POST" enctype="multipart/form-data">
 			<h5>Mostrar todas las propiedades de esta comunidad</h5>
 			<input type="file" name="dato" accept="media_type" multiple = "true"></input>
-			<input type="submit" name="subir" value="Sube los videos"></input>
+			<input type="submit" name="subir" value="Sube los videos" onclick="popUpRecuerdo()"></input>
+			<span class="popuptext" id="myPopup">Cuando tus vídeos se hayan subido serás redirigido. Por favor, espera...</span>
 		</form>
 	</div>
 

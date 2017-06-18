@@ -20,6 +20,7 @@ import com.dropbox.core.v2.DbxClientV2;
 import com.dropbox.core.v2.files.FileMetadata;
 import com.dropbox.core.v2.files.UploadErrorException;
 import com.dropbox.core.v2.files.WriteMode;
+import com.editory.dropbox.DropboxManager;
 import com.editory.web.mail.EmailSender;
 
 @Controller
@@ -85,24 +86,26 @@ public class InicioController {
 			
 			String dropboxPath = "/editory/"+nombre+"."+extension;
 			
+			DropboxManager gestorDropbox = new DropboxManager();
+			gestorDropbox.chunkedUploadFile(dbxClient, dato, dropboxPath);
 			
-			try (InputStream in = (dato.getInputStream())) {
-	            FileMetadata metadata = dbxClient.files().uploadBuilder(dropboxPath)
-	                .withMode(WriteMode.ADD)
-	                .withClientModified(new Date())
-	                .uploadAndFinish(in);
-	
-	            System.out.println(metadata.toStringMultiline());
-	        } catch (UploadErrorException ex) {
-	            System.err.println("Error uploading to Dropbox: " + ex.getMessage());
-	            System.exit(1);
-	        } catch (DbxException ex) {
-	            System.err.println("Error uploading to Dropbox: " + ex.getMessage());
-	            System.exit(1);
-	        } catch (IOException ex) {
-	            System.err.println("Error reading from file \"" + dato + "\": " + ex.getMessage());
-	            System.exit(1);
-	        }
+//			try (InputStream in = (dato.getInputStream())) {
+//	            FileMetadata metadata = dbxClient.files().uploadBuilder(dropboxPath)
+//	                .withMode(WriteMode.ADD)
+//	                .withClientModified(new Date())
+//	                .uploadAndFinish(in);
+//	
+//	            System.out.println(metadata.toStringMultiline());
+//	        } catch (UploadErrorException ex) {
+//	            System.err.println("Error uploading to Dropbox: " + ex.getMessage());
+//	            System.exit(1);
+//	        } catch (DbxException ex) {
+//	            System.err.println("Error uploading to Dropbox: " + ex.getMessage());
+//	            System.exit(1);
+//	        } catch (IOException ex) {
+//	            System.err.println("Error reading from file \"" + dato + "\": " + ex.getMessage());
+//	            System.exit(1);
+//	        }
 		}
 		
 		
