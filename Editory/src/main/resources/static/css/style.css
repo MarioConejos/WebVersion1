@@ -1,5 +1,14 @@
 
 /* Popup container - can be anything you want */
+
+span.inputtext{
+	color:white;
+}
+
+.blanco{
+	color:white;
+}
+
 .popup {
     position: relative;
     display: inline-block;
@@ -372,7 +381,7 @@ ul.dropdown-menu {
 }
 /*-- //social-icons --*/
 .w3layouts-banner-slider {
-    margin: 9em 0;
+    margin-bottom: 15em;
 }
 .agileits-banner-info {
 	text-align:center;
@@ -1722,7 +1731,7 @@ figure.effect-apollo:hover p {
     margin-bottom: 2em;
     margin-left: 30em;
 }
-.agileinfo-contact-form-grid input[type="text"],.agileinfo-contact-form-grid input[type="email"] {
+.agileinfo-contact-form-grid input[type="text"],.agileinfo-contact-form-grid input[type="email"]  {
     display: inline-block;
     background: none;
     border: 1.5px solid #BBBBBB;
@@ -1733,6 +1742,7 @@ figure.effect-apollo:hover p {
     color: #BBBBBB;
     margin-bottom: 1.5em;
 }
+
 .agileinfo-contact-form-grid textarea {
     background: none;
     border: 1.5px solid #BBBBBB;

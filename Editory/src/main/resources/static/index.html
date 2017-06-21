@@ -55,6 +55,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		});
 	});
 </script>
+<script>
+$(document).on('click', 'ancla', function(event){
+    event.preventDefault();
+
+    $('html, body').animate({
+        scrollTop: $( $.attr(this, 'primerpaso') ).offset().top
+    }, 500);
+});
+</script>
 <!--[if lt IE 9]>
   <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 <![endif]-->
@@ -64,23 +73,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<div class="banner">
 		<div class="header">
 			<div class="container">
-				<div class="header-left">
-					<div class="w3layouts-logo">
-						<h1>
-							<a href="index.html"><span>video</span> Editory</a>
-						</h1>
-					</div>
-				</div>
+
 				<div class="header-right">
-					<div class="w3-header-top">
-						<ul>
-							<li><i class="fa fa-phone" aria-hidden="true"></i> :
-								123456789</li>
-							<li><i class="fa fa-envelope" aria-hidden="true"></i> : <a
-								href="editoryweb@gmail.com">editoryweb@gmail.com</a></li>
-						</ul>
-						</p>
-					</div>
 					<div class="w3-header-bottom">
 						<div class="top-nav">
 							<nav class="navbar navbar-default">
@@ -133,10 +127,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										<h3>Editory</h3>
 									</div>
 
-									<p>Nuestros editores crearán para ti tu regalo o recuerdo
-										perfecto</p>
+									<p>Sigue estos tres pasos para conseguir tu vídeo</p>
 									<div class="w3-button">
-										<a href="#primerpaso">Comenzar</a>
+										<a id="ancla" href="#primerpaso">Comenzar</a>
 									</div>
 								</div>
 							</li>
@@ -144,7 +137,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<div class="agileits-banner-info">
 
 									<h3>Editory</h3>
-									<p>Envíanos tus vídeos en tan solo 3 pasos</p>
+									<p>Envíanos tus vídeos y fotos y editaremos el regalo o recuerdo
+										perfecto</p>
 									<div class="w3-button">
 										<a href="#primerpaso">Comenzar</a>
 									</div>
@@ -187,7 +181,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<!-- //banner -->
 
 	<!-- services -->
-	<A NAME="primerpaso"></A>
+	<A id ="primerpaso" ></A>
 	<div class="services">
 		<div class="container">
 			<div class="w3l-heading">
@@ -242,22 +236,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 			<div class="w3-welcome-grids w3-welcome-bottom">
 				<div class="col-md-5 w3ls-welcome-img1 w3ls-welcome-img2">
-					<video id="ejemplo" width="400" autoplay loop>
-						<source src="video/mov_bbb.mp4" type="video/mp4">
+					<video id="ejemplo" width="500" autoplay loop>
+						<source src="video/regalo.mp4" type="video/mp4">
 					</video>
-					<div class="w3l-button" id = "botones">
-						<a href="single.html">Ver vídeo</a>
-					</div>
+
 					<p id="centrado">Recopila felicitaciones /mensajes de familiares y amigos y crearemos un regalo original y divertido</p>
-					<a href = "regalo.html">Pide tu regalo</a>
+					<a href="../regalo.html#comentarios">Pide tu regalo</a>
 				</div>
 				<div class="col-md-5 w3-welcome-left">
-					<video id="ejemplo" width="400" autoplay loop>
+					<video id="ejemplo" width="500" autoplay loop>
 						<source src="video/recuerdofondo.mp4" type="video/mp4">
 					</video>
-					<div class="w3l-button">
-						<a href="single.html">Ver vídeo</a>
-					</div>
+
 					<p id="centrado">
 					Graba tu viaje / excursión / aventura y crearemos un video– resumen de 3 a 5 minutos para crear un recuerdo inolvidable
 					
@@ -269,70 +259,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		</div>
 	</div>
 	<!-- //welcome -->
-	<!-- news -->
-	<div class="news">
-		<div class="container">
-			<div class="w3l-heading" >
-				<h3>Sube tus vídeos</h3>
-			</div>
-			<div class="wthree-news-grids">
-				<div class="col-md-5 agile-news-left">
-					<img src="images/4.jpg" alt="" />
-				</div>
-				<div class="col-md-7 agile-news-right">
-					<div class="date-grid">
-						<div class="admin">
-							<a href="#"><i class="fa fa-user" aria-hidden="true"></i>
-								Admin</a>
-						</div>
-						<div class="time">
-							<p>
-								<i class="fa fa-calendar" aria-hidden="true"></i> May 09,2016
-							</p>
-						</div>
-						<div class="clearfix"></div>
-					</div>
-					<div class="w3-agile-news-info">
-						<a href="single.html">Aenean id lorem <span>efficitur,
-								porttitor</span> eros dapibus
-						</a>
-					</div>
-					<div class="w3l-button">
-						<a href="single.html">More</a>
-					</div>
-				</div>
-				<div class="clearfix"></div>
-			</div>
-		</div>
-	</div>
-	<!-- //news -->
-	<!-- newsletter -->
-	<div class="jarallax newsletter">
-		<div class="container">
-			<div class="w3l-heading newsletter-heading">
-				<h3>Comentarios</h3>
-			</div>
-		</div>
-		</br>
-		<div class="contact-form-top">
-			<h3>¿Qué más cosas tenías pensadas para tu vídeo?</h3>
-		</div>
-		<div class="agileinfo-contact-form-grid">
-			<form action="/enviarCorreo" method="post">
-				<input type="text" name="Nombre" placeholder="Nombre" required>
-				<input type="email" name="Email" placeholder="Email" required>
-				<input type="text" name="Telefono" placeholder="Teléfono" required>
-				<input type="text" name="TextoInicial" placeholder="Texto Inicial">
-				<input type="text" name="TextoFinal" placeholder="Texto Final">
-				<input type="text" name="Cancion" placeholder="Canción">
-				<textarea name="Sugerencias" placeholder="Sugerencias"></textarea>
-				<textarea name="Preguntas" placeholder="Preguntas"></textarea>
-				<button class="btn1">Enviar</button>
-			</form>
-		</div>
+	
 
-	</div>
-	<!-- //newsletter -->
 
 	<!-- copyright -->
 	<div class="agileits-w3layouts-copyright">

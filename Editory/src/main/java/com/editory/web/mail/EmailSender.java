@@ -55,10 +55,10 @@ public class EmailSender {
 			Session session = Session.getInstance(props, auth);
 			
 			StringBuilder mensaje = new StringBuilder();
-			mensaje.append("Nuevo vídeo para editar con las siguientes características: \n");
+			mensaje.append("Nuevo vídeo para editar con las siguientes características: \n\n");
 			Set<String> claves = this.contenido.keySet();
 			for(String clave: claves){
-				mensaje.append(clave+":").append(this.contenido.get(clave)).append("\n");
+				mensaje.append(clave+":").append(this.contenido.get(clave)).append("\n"+"\n");
 			}
 			mensaje.append("Saludos");
 			

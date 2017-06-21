@@ -1,0 +1,217 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<title>Vídeo Recuerdo</title>
+<link rel="stylesheet" type="text/css" href="../static/css/style.css"
+	th:href="@{/css/style.css}"></link>
+<meta charset="utf-8" />
+
+<script type="application/x-javascript">
+	
+	
+	
+	
+	
+ addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
+
+
+
+
+
+</script>
+
+<!-- bootstrap-css -->
+<link href="css/bootstrap.css" rel="stylesheet" type="text/css"
+	media="all"></link>
+<!--// bootstrap-css -->
+<!-- css -->
+<link rel="stylesheet" href="css/style.css" type="text/css" media="all"></link>
+<!--// css -->
+<!-- font-awesome icons -->
+<link href="css/font-awesome.css" rel="stylesheet"></link>
+<!-- //font-awesome icons -->
+<!-- font -->
+<link
+	href="//fonts.googleapis.com/css?family=Crimson+Text:400,400i,600,600i,700,700i"
+	rel="stylesheet"></link>
+<link
+	href="//fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i"
+	rel="stylesheet"></link>
+<link
+	href='//fonts.googleapis.com/css?family=Roboto+Condensed:400,700italic,700,400italic,300italic,300'
+	rel='stylesheet' type='text/css'></link>
+<!-- //font -->
+<script src="js/jquery-1.11.1.min.js"></script>
+<script src="js/bootstrap.js"></script>
+<script type="text/javascript">
+	jQuery(document).ready(function($) {
+		$(".scroll").click(function(event) {
+			event.preventDefault();
+			$('html,body').animate({
+				scrollTop : $(this.hash).offset().top
+			}, 1000);
+		});
+	});
+	// When the user clicks on div, open the popup
+	function popUpRecuerdo() {
+		var popup = document.getElementById("myPopup");
+		popup.classList.toggle("show");
+	}
+</script>
+
+
+<!--[if lt IE 9]><script src="scripts/html5shiv.js"></script><![endif]-->
+</head>
+
+
+
+
+<body>
+	<!-- banner -->
+	<div class="banner">
+		<div class="header">
+			<div class="container">
+				<div class="header-left">
+					<div class="w3layouts-logo">
+						<h1>
+							<a href="index.html"><span>video</span> Editory</a>
+						</h1>
+					</div>
+				</div>
+				<div class="header-right">
+					<div class="w3-header-top">
+						<ul>
+							<li><i class="fa fa-phone" aria-hidden="true"></i> :
+								123456789</li>
+							<li><i class="fa fa-envelope" aria-hidden="true"></i> : <a
+								href="editoryweb@gmail.com">editoryweb@gmail.com</a></li>
+						</ul>
+
+					</div>
+					<div class="w3-header-bottom">
+						<div class="top-nav">
+							<nav class="navbar navbar-default">
+								<div class="navbar-header">
+									<button type="button" class="navbar-toggle collapsed"
+										data-toggle="collapse"
+										data-target="#bs-example-navbar-collapse-1">
+										<span class="sr-only">Toggle navigation</span> <span
+											class="icon-bar"></span> <span class="icon-bar"></span> <span
+											class="icon-bar"></span>
+									</button>
+								</div>
+								<!-- Collect the nav links, forms, and other content for toggling -->
+								<div class="collapse navbar-collapse"
+									id="bs-example-navbar-collapse-1">
+									<ul class="nav navbar-nav">
+										<li><a class="active" href="index.html">Inicio</a></li>
+										<li><a href="about.html">Quiénes Somos</a></li>
+										<li><a href="contact.html">Contacto</a></li>
+									</ul>
+									<div class="clearfix"></div>
+								</div>
+							</nav>
+						</div>
+						<div class="agileinfo-social-grids">
+							<ul>
+								<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+								<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+							</ul>
+						</div>
+						<div class="clearfix"></div>
+					</div>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+	</div>
+
+	
+
+		
+
+	
+				<!-- newsletter -->
+	<div class="jarallax newsletter">
+		<div class="container">
+			<div class="w3l-heading newsletter-heading">
+				<h3>Comentarios</h3>
+			</div>
+		</div>
+		<br></br>
+		<div class="contact-form-top">
+			<h3>¿Qué más cosas tenías pensadas para tu vídeo?</h3>
+		</div>
+		<div class="agileinfo-contact-form-grid">
+			<form action="/enviarCorreoRegalo" method="post">
+				<input type="text" name="Nombre" placeholder="Nombre" required="true"></input>
+				<input type="email" name="Email" placeholder="Email" required="true"></input>
+				<input type="text" name="Telefono" placeholder="Teléfono" required="true"></input>
+				<input type="text" name="TextoInicial" placeholder="Texto Inicial"></input>
+				
+  				<input type="text" name="TextoFinal" placeholder="Texto Final"></input>
+				<input type="text" name="Cancion" placeholder="Canción"></input>
+				<input type ="hidden" name="Presupuesto" th:value="${precioTotal}"></input><span class="inputText">Recopilación</span>
+				<div class="blanco">
+					<h3 >Instrucciones</h3>
+					<ul>
+						<li>Confirma el pedido para que podamos asignar un editor </li>
+						<li>Envía todas las fotos y videos al número _ _ _ _ _ _ _ _ _</li>
+						<li>Hasta que no confirmes que todos los videos y fotos están enviados no comenzará la edición.</li>
+						<li>Todos los archivos deben de estar enviados al menos 1 semana antes del día de entrega del regalo</li>
+						
+					</ul>
+					
+					<span  th:text="'Precio Total: '+${precioTotal}"></span><br></br>	
+					<br></br>	
+				</div>		
+				<button class="btn1">Enviar</button>
+			</form>
+			
+			
+			
+		</div>
+
+	</div>
+		<!-- copyright -->
+	<div class="agileits-w3layouts-copyright">
+		<div class="container">
+			<p>© 2017 Editory Web. All rights reserved</p>
+		</div>
+	</div>
+	<!-- //copyright -->
+	<script src="js/responsiveslides.min.js"></script>
+	<script src="js/SmoothScroll.min.js"></script>
+	<script type="text/javascript" src="js/move-top.js"></script>
+	<script type="text/javascript" src="js/easing.js"></script>
+	<!-- here stars scrolling icon -->
+	<script type="text/javascript">
+		$(document).ready(function() {
+			/*
+				var defaults = {
+				containerID: 'toTop', // fading element id
+				containerHoverID: 'toTopHover', // fading element hover id
+				scrollSpeed: 1200,
+				easingType: 'linear' 
+				};
+			 */
+
+			$().UItoTop({
+				easingType : 'easeOutQuart'
+			});
+
+		});
+	</script>
+	<!-- //here ends scrolling icon -->
+	<script src="js/jarallax.js"></script>
+	<script type="text/javascript">
+		/* init Jarallax */
+		$('.jarallax').jarallax({
+			speed : 0.5,
+			imgWidth : 1366,
+			imgHeight : 768
+		})
+	</script>
+
+</body>
+</html>
