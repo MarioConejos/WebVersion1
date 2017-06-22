@@ -20,6 +20,8 @@ import com.dropbox.core.v2.files.UploadSessionFinishErrorException;
 import com.dropbox.core.v2.files.UploadSessionLookupErrorException;
 import com.dropbox.core.v2.files.WriteMode;
 
+import groovyjarjarantlr.StringUtils;
+
 /**
  * This class manages the access, downloading and uploading files to Dropbox as
  * well as authentication
@@ -196,6 +198,13 @@ public class DropboxManager {
 			System.err.println("Maxed out upload attempts to Dropbox. Most recent error: " + thrown.getMessage());
 			System.exit(1);
 		}
+	}
+	
+	public static String linkCarpeta(final String str){
+		
+		String a = str.replaceAll(" ", "%20");
+		String b = a.replaceAll(":", "%3A");
+		return "https://www.dropbox.com/home/"+b;
 	}
 
 	private static void printProgress(long uploaded, long size) {

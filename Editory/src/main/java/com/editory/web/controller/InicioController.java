@@ -31,6 +31,9 @@ public class InicioController {
 		//redirect:/TestStuff.html
 		return "redirect:/index.html";
 	}
+	
+	
+	
 	@RequestMapping("/enviarCorreo")
 	public String enviarCorreo(@RequestParam String Nombre,
 			@RequestParam String Email,
@@ -38,24 +41,26 @@ public class InicioController {
 			@RequestParam String TextoInicial,
 			@RequestParam String TextoFinal,
 			@RequestParam String Cancion,
-			@RequestParam String Sugerencias,
-			@RequestParam String Preguntas,
-			@RequestParam String presupuesto,
+			@RequestParam String Parte,
+			@RequestParam String Persona,
+			@RequestParam String Historia,
+			@RequestParam String precio,
 			@RequestParam String carpeta,
 			Model model) {
 		
 		HashMap<String, String> camposCorreo = new HashMap<>();
-		camposCorreo.put("TIPO DE VIDEO:", "Recuerdo");
-		camposCorreo.put("nombre", Nombre);
+		camposCorreo.put("TIPO DE VIDEO ", "Recuerdo");
+		camposCorreo.put("Nombre", Nombre);
 		camposCorreo.put("mail",Email);
-		camposCorreo.put("telefono",Telefono);
-		camposCorreo.put("inicial",TextoInicial);
-		camposCorreo.put("final",TextoFinal);
-		camposCorreo.put("cancion",Cancion);
-		camposCorreo.put("sugerencias",Sugerencias);
-		camposCorreo.put("preguntas",Preguntas);
-		camposCorreo.put("presupuesto", presupuesto);
-		camposCorreo.put("carpeta", carpeta);
+		camposCorreo.put("Telefono",Telefono);
+		camposCorreo.put("Texto Inicial",TextoInicial);
+		camposCorreo.put("Texto Final",TextoFinal);
+		camposCorreo.put("Cancion",Cancion);
+		camposCorreo.put("Persona con más importancia",Persona);
+		camposCorreo.put("Parte favorita del video",Parte);
+		camposCorreo.put("Historia", Historia);
+		camposCorreo.put("Precio: ", precio);
+		camposCorreo.put("Carpeta", carpeta);
 		
 		EmailSender mensajero = new EmailSender(camposCorreo);
 		mensajero.enviar();
@@ -66,7 +71,39 @@ public class InicioController {
 	}
 	
 	
-	///enviarCorreoRegalo
+	////enviarCorreoRecopilacion
+	
+	
+	@RequestMapping("/enviarCorreoRecopilacion")
+	public String enviarCorreoRecopilacion(@RequestParam String Nombre,
+			@RequestParam String Email,
+			@RequestParam String Telefono,
+			@RequestParam String TextoInicial,
+			@RequestParam String precio,
+			@RequestParam String carpeta,
+			Model model) {
+		
+		HashMap<String, String> camposCorreo = new HashMap<>();
+		camposCorreo.put("TIPO DE VIDEO:", "Recuerdo");
+		camposCorreo.put("Nombre", Nombre);
+		camposCorreo.put("mail",Email);
+		camposCorreo.put("Telefono",Telefono);
+		camposCorreo.put("Texto Inicial",TextoInicial);
+		camposCorreo.put("Precio", precio);
+		camposCorreo.put("Carpeta", carpeta);
+		
+		EmailSender mensajero = new EmailSender(camposCorreo);
+		mensajero.enviar();
+		
+		
+		return "redirect:/index.html";
+		
+	}
+	
+	
+	
+	
+	
 	
 	@RequestMapping("/enviarCorreoRegalo")
 	public String enviarCorreoRegalo(@RequestParam String Nombre,
@@ -105,7 +142,7 @@ public class InicioController {
 	}
 	
 	@RequestMapping("/subirArchivos")
-	public String subirArchivos(Model model, @RequestParam("dato") List<MultipartFile> datos,
+	public String subirArchivos(Model model, @RequestParam("files") List<MultipartFile> files,
             RedirectAttributes redirectAttributes, @RequestParam("duracion") String duracion){
 		
 		DbxClientV2 dbxClient;
@@ -115,7 +152,7 @@ public class InicioController {
 	
 		String carpeta = new Date().toString();
 		carpeta = carpeta + Integer.toString(new Random().nextInt()	);	
-		for(MultipartFile dato : datos){
+		for(MultipartFile dato : files){
 			
 				
 			String extension = dato.getOriginalFilename().split("\\.")[1];
@@ -138,8 +175,8 @@ public class InicioController {
 		case 200: precioMedio = 300; precioCaro = 400; break;
 		}
 		
-		
-		model.addAttribute("carpeta",carpeta);
+		String link = DropboxManager.linkCarpeta(carpeta);
+		model.addAttribute("carpeta",link);
 		model.addAttribute("precioBarato", precioBarato);
 		model.addAttribute("precioMedio", precioMedio);
 		model.addAttribute("precioCaro", precioCaro);
@@ -157,4 +194,46 @@ public class InicioController {
 		return "confirmaRegalo";
 	
 	}
+	
+	@RequestMapping("/continuarRecopilacion")
+	public String continuarRecopilacion(Model model, @RequestParam("precioBarato") String precioBarato,
+			@RequestParam("precioMedio") String precioMedio, @RequestParam("precioCaro") String precioCaro,
+			@RequestParam("carpeta") String carpeta) {	
+		
+		model.addAttribute("precioBarato", precioBarato);
+		model.addAttribute("precioMedio", precioMedio);
+		model.addAttribute("precioCaro", precioCaro);
+		model.addAttribute("carpeta", carpeta);
+		return "salidaRecopilacion";
+	
+	}
+	
+	///continuarEdicion
+	@RequestMapping("/continuarEdicion")
+	public String continuarEdicion(Model model, @RequestParam("precioBarato") String precioBarato,
+			@RequestParam("precioMedio") String precioMedio, @RequestParam("precioCaro") String precioCaro,
+			@RequestParam("carpeta") String carpeta) {	
+		
+		model.addAttribute("precioBarato", precioBarato);
+		model.addAttribute("precioMedio", precioMedio);
+		model.addAttribute("precioCaro", precioCaro);
+		model.addAttribute("carpeta", carpeta);
+		return "salidaEdicion";
+	
+	}
+	
+	//continuarEdicionPremium
+	@RequestMapping("/continuarEdicionPremium")
+	public String continuarEdicionPremium(Model model, @RequestParam("precioBarato") String precioBarato,
+			@RequestParam("precioMedio") String precioMedio, @RequestParam("precioCaro") String precioCaro,
+			@RequestParam("carpeta") String carpeta) {	
+		
+		model.addAttribute("precioBarato", precioBarato);
+		model.addAttribute("precioMedio", precioMedio);
+		model.addAttribute("precioCaro", precioCaro);
+		model.addAttribute("carpeta", carpeta);
+		return "salidaEdicionPremium";
+	
+	}
+	
 }

@@ -92,8 +92,8 @@ $(document).on('click', 'ancla', function(event){
 									id="bs-example-navbar-collapse-1">
 									<ul class="nav navbar-nav">
 										<li><a class="active" href="index.html">Inicio</a></li>
-										<li><a href="about.html">Quiénes Somos</a></li>
-										<li><a href="contact.html">Contacto</a></li>
+										<li><a href="#aboutUs">Quiénes Somos</a></li>
+										<li><a href="#contactUs">Contacto</a></li>
 									</ul>
 									<div class="clearfix"></div>
 								</div>
@@ -102,7 +102,9 @@ $(document).on('click', 'ancla', function(event){
 						<div class="agileinfo-social-grids">
 							<ul>
 								<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-								<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+								<li><a href="#"><i class="fa fa-instagram"></i></a></li>
+								<li><a href="#"><i class="fa fa-youtube-play"></i></a></li>
+								<li><a href="#aboutUs"><i class="fa fa-whatsapp"></i></a></li>
 							</ul>
 						</div>
 						<div class="clearfix"></div>
@@ -117,17 +119,20 @@ $(document).on('click', 'ancla', function(event){
 					<!-- Video is embedded in the WEBM format -->
 					<source src="video/fondogeneral.mp4" type="video/mp4">
 				</video>
-				<div class="slider">
+				<br></br>
+				<br></br>
+				<br></br>
+				<div class="slider margentop">
 					<div class="callbacks_container">
 
 						<ul class="rslides callbacks callbacks1" id="slider4">
 							<li>
 								<div class="agileits-banner-info">
 									<div class="logo">
-										<h3>Editory</h3>
+										<h3>EDITORY</h3>
 									</div>
 
-									<p>Sigue estos tres pasos para conseguir tu vídeo</p>
+									<p font-family = "Beirut">Sigue estos tres pasos para conseguir tu vídeo</p>
 									<div class="w3-button">
 										<a id="ancla" href="#primerpaso">Comenzar</a>
 									</div>
@@ -136,8 +141,8 @@ $(document).on('click', 'ancla', function(event){
 							<li>
 								<div class="agileits-banner-info">
 
-									<h3>Editory</h3>
-									<p>Envíanos tus vídeos y fotos y editaremos el regalo o recuerdo
+									<h3>EDITORY</h3>
+									<p  font-family = "Beirut">Envíanos tus vídeos y fotos y editaremos el regalo o recuerdo
 										perfecto</p>
 									<div class="w3-button">
 										<a href="#primerpaso">Comenzar</a>
@@ -237,36 +242,61 @@ $(document).on('click', 'ancla', function(event){
 			<div class="w3-welcome-grids w3-welcome-bottom">
 				<div class="col-md-5 w3ls-welcome-img1 w3ls-welcome-img2">
 					<video id="ejemplo" width="500" autoplay loop>
-						<source src="video/regalo.mp4" type="video/mp4">
+						<source src="video/regaloBN.mp4" type="video/mp4">
 					</video>
-
-					<p id="centrado">Recopila felicitaciones /mensajes de familiares y amigos y crearemos un regalo original y divertido</p>
-					<a href="../regalo.html#comentarios">Pide tu regalo</a>
+					<div class="w3l-button masPadding" id = "botones">
+					<a href="/regalo.html#comentarios" class = "pideEdicion">Pide tu regalo</a>
+					</div>
+					<a href="single.html">Ver anuncio</a>
+					
 				</div>
 				<div class="col-md-5 w3-welcome-left">
 					<video id="ejemplo" width="500" autoplay loop>
-						<source src="video/recuerdofondo.mp4" type="video/mp4">
+						<source src="video/recuerdoSepia.mp4" type="video/mp4">
 					</video>
-
-					<p id="centrado">
-					Graba tu viaje / excursión / aventura y crearemos un video– resumen de 3 a 5 minutos para crear un recuerdo inolvidable
+					<div class="w3l-button masPadding" id = "botones">
+					<a href = "/recuerdo" class = "pideEdicion">Pide tu recuerdo</a>
+					</div>
+					<a href="single.html">Ver anuncio</a>
 					
-					</p>
-					<a href = "/recuerdo">Pide tu recuerdo</a>
 				</div>
 				<div class="clearfix"></div>
 			</div>
 		</div>
 	</div>
 	<!-- //welcome -->
-	
+	<div class="jarallax newsletter">
+		<div class="container">
+			<br></br>
+			<br></br>
+			<br></br>
+		</div>
+
+
+	</div>	
 
 
 	<!-- copyright -->
+    <A NAME="aboutUs"></A> <!-- nuevo, pero falta el scroll lento -->
+	<A NAME="contactUs"></A>
 	<div class="agileits-w3layouts-copyright">
 		<div class="container">
-			<p>© 2017 Editory Web. All rights reserved</p>
+			<div class="divAlineado">
+				<h3 class= "blanco">Quiénes somos</h3>
+				<p>Nuestros jovenes editores...</p>
+			</div>
+			<div class="divAlineado">
+				<h3 class= "blanco">Contacto</h3>
+			 <div class="agileinfo-social-grids">
+				<h5 color= "white">Escríbenos a nuestro WhatsApp</h5>				
+				<p class="fa fa-whatsapp">606929737</p>
+				<h5>Mándanos un correo</h5>	
+				<p>editory.video@gmail.com</p>
+			</div>
+			<br></br>
+			<br></br>
 		</div>
+		<p>© 2017 Editory Web. All rights reserved</p>
 	</div>
 	<!-- //copyright -->
 	<script src="js/responsiveslides.min.js"></script>

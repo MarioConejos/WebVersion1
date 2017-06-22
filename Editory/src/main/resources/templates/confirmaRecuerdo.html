@@ -12,7 +12,9 @@
 	
 	
 	
+	
  addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
+
 
 
 
@@ -73,20 +75,11 @@
 				<div class="header-left">
 					<div class="w3layouts-logo">
 						<h1>
-							<a href="index.html"><span>video</span> Editory</a>
+							<a href="index.html">Editory</a>
 						</h1>
 					</div>
 				</div>
 				<div class="header-right">
-					<div class="w3-header-top">
-						<ul>
-							<li><i class="fa fa-phone" aria-hidden="true"></i> :
-								123456789</li>
-							<li><i class="fa fa-envelope" aria-hidden="true"></i> : <a
-								href="editoryweb@gmail.com">editoryweb@gmail.com</a></li>
-						</ul>
-
-					</div>
 					<div class="w3-header-bottom">
 						<div class="top-nav">
 							<nav class="navbar navbar-default">
@@ -104,8 +97,8 @@
 									id="bs-example-navbar-collapse-1">
 									<ul class="nav navbar-nav">
 										<li><a class="active" href="index.html">Inicio</a></li>
-										<li><a href="about.html">Quiénes Somos</a></li>
-										<li><a href="contact.html">Contacto</a></li>
+										<li><a href="#about">Quiénes Somos</a></li>
+										<li><a href="#contact">Contacto</a></li>
 									</ul>
 									<div class="clearfix"></div>
 								</div>
@@ -114,7 +107,9 @@
 						<div class="agileinfo-social-grids">
 							<ul>
 								<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-								<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+								<li><a href="#"><i class="fa fa-instagram"></i></a></li>
+								<li><a href="#"><i class="fa fa-youtube-play"></i></a></li>
+								<li><a href="#about"><i class="fa fa-whatsapp"></i></a></li>
 							</ul>
 						</div>
 						<div class="clearfix"></div>
@@ -125,38 +120,57 @@
 		</div>
 	</div>
 
-	<div>
 
-		
 
-	<div class="container">
-			<div class="trescajas ">
-				<div class="presupuesto">
-					<h2 class="centrado">Recopilación de videos</h2>
-					<h4 class="centrado">
-						<span th:text="${precioBarato}+'€'"></span>
-					</h4>
-				</div>
-				<div class="presupuesto">
-					<h2 class="centrado">Edición de video</h2>
-					<h4 class="centrado">
-						<span th:text="${precioMedio}+'€'"></span>
-					</h4>
-					<p class="listado ">
+
+	<div class="container gris" >
+
+		<!-- comienzo presupuestos -->
+
+		<div class="trescajas ">
+			<div class="presupuesto">
+				<h2 class="centrado">Recopilación de videos</h2>
+				<h4 class="centrado">
+					<span th:text="${precioBarato}"></span>
+				</h4>
+				<form action="/continuarRecopilacion" method="POST">
+					<input type="hidden" name="precioBarato" th:value="${precioBarato}"></input>
+					<input type="hidden" name="precioMedio" th:value="${precioMedio}"></input>
+					<input type="hidden" name="precioCaro" th:value="${precioCaro}"></input>
+					<input type='hidden' name='carpeta' th:value='${carpeta}' ></input>
+					<input class="w3-button" type="submit" name="subir"
+						value="Selecciona Recopilación"></input>
+				</form>
+
+			</div>
+			<div class="presupuesto">
+				<h2 class="centrado">Edición de video</h2>
+				<h4 class="centrado">
+					<span th:text="${precioMedio}"></span>
+				</h4>
+				<div class="listado ">
 					<ul>
 						<li>Edición elaborada de vídeo</li>
 						<li>Sugerencias personales</li>
 						<li>Una revisión/hacer un cambio</li>
 						<li>Posibilidad de incluir fotos</li>
-					</ul>'
-					</p>
+					</ul>
 				</div>
-				<div class="presupuesto">
-					<h2 class="centrado">Edición premium</h2>
-					<h4 class="centrado">
-						<span th:text="${precioCaro}+'€'"></span>
-					</h4>
-					<p class="listado">
+				<form action="/continuarEdicion" method="POST">
+					<input type="hidden" name="precioBarato" th:value="${precioBarato}"></input>
+					<input type="hidden" name="precioMedio" th:value="${precioMedio}"></input>
+					<input type="hidden" name="precioCaro" th:value="${precioCaro}"></input>
+					<input type='hidden' name='carpeta' th:value='${carpeta}' ></input>
+					<input class="w3-button" type="submit" name="subir"
+						value="Selecciona Edición"></input>
+				</form>
+			</div>
+			<div class="presupuesto">
+				<h2 class="centrado">Edición premium</h2>
+				<h4 class="centrado">
+					<span th:text="${precioCaro}"></span>
+				</h4>
+				<div class="listado">
 					<ul>
 						<li>Edición elaborada y totalmente personalizada del vídeo</li>
 						<li>Sugerencias personales</li>
@@ -165,16 +179,34 @@
 						<li>Contacto continuo con el editor</li>
 						<li>Posibilidad de añadir nuevos vídeos durante la edición</li>
 					</ul>
-					</p>
 				</div>
+				<form action="/continuarEdicionPremium" method="POST">
+					<input type="hidden" name="precioBarato" th:value="${precioBarato}"></input>
+					<input type="hidden" name="precioMedio" th:value="${precioMedio}"></input>
+					<input type="hidden" name="precioCaro" th:value="${precioCaro}"></input>
+					<input type='hidden' name='carpeta' th:value='${carpeta}' ></input>
+					<input class="w3-button" type="submit" name="subir"
+						value="Selecciona Edición Premium"></input>
+				</form>
 			</div>
-			</div>
-		
-
-
+		</div>
 	</div>
-				<!-- newsletter -->
-	<div class="jarallax newsletter">
+	<!--   
+<div class= "SeleccionCoste">
+		<h3>Elige tu opción</h3>
+		        <input class="letrasNegras" id="letrasNeg" type="radio" name="presupuesto" th:value="'Recopilación: '+${precioBarato}" checked="true" ></input><span class="inputText">Recopilación</span>
+  				<input class="letrasNegras" id="letrasNeg" type="radio" name="presupuesto" th:value="'Edición: '+${precioMedio}" checked="false"></input><span class="inputText">Edición</span>
+  				<input class="letrasNegras" id="letrasNeg" type="radio" name="presupuesto" th:value="'Edición: '+${precioCaro}" checked="false"></input><span class="inputText">Edición Premium</span><br></br>
+</div>
+
+ -->
+	<!-- fin presupuestos -->
+
+
+
+	<!-- newsletter -->
+	<!-- 
+<div class="jarallax newsletter">
 		<div class="container">
 			<div class="w3l-heading newsletter-heading">
 				<h3>Comentarios</h3>
@@ -186,27 +218,46 @@
 		</div>
 		<div class="agileinfo-contact-form-grid">
 			<form action="/enviarCorreo" method="post">
-				<input type="text" name="Nombre" placeholder="Nombre" required="true"></input>
-				<input type="email" name="Email" placeholder="Email" required="true"></input>
-				<input type="text" name="Telefono" placeholder="Teléfono" required="true"></input>
+
 				<input type="text" name="TextoInicial" placeholder="Texto Inicial"></input>
-				<input type="radio" name="presupuesto" th:value="'Recopilación: '+${precioBarato}" checked="true" ></input><span class="inputText">Recopilación</span>
-  				<input type="radio" name="presupuesto" th:value="'Edición: '+${precioMedio}" checked="false"></input><span class="inputText">Edición</span>
-  				<input type="radio" name="presupuesto" th:value="'Edición: '+${precioCaro}" checked="false"></input><span class="inputText">Edición Premium</span><br></br>
-  				<!-- <input type="radio" name="presupuesto" th:value="'Edición Premium: '+ ${precioCaro}"checked="false"></input> -->
 				<input type="text" name="TextoFinal" placeholder="Texto Final"></input>
 				<input type="text" name="Cancion" placeholder="Canción"></input>
 				<input type='hidden' name='carpeta' th:value='${carpeta}' ></input>
 				<textarea name="Sugerencias" placeholder="Sugerencias"></textarea>
 				<textarea name="Preguntas" placeholder="Preguntas"></textarea>
+				<br></br>
+				<h4 font-family= "Beirut" class= "blanco">Rellena tus datos para poder ponernos en contacto contigo</h4>
+				<br></br>
+			    <input type="text" name="Nombre" placeholder="Nombre" required="true"></input>
+				<input type="email" name="Email" placeholder="Email" required="true"></input>
+				<input type="text" name="Telefono" placeholder="Teléfono" required="true"></input>
 				<button class="btn1">Enviar</button>
 			</form>
 		</div>
 
 	</div>
-		<!-- copyright -->
+	
+	 -->
+	<!-- copyright -->
+	<A NAME="about"></A>
+	<!-- nuevo, pero falta el scroll lento -->
+	<A NAME="contact"></A>
 	<div class="agileits-w3layouts-copyright">
 		<div class="container">
+			<div class="divAlineado">
+				<h3 class="blanco">Quiénes somos</h3>
+				<p>Nuestros jovenes editores...</p>
+			</div>
+			<div class="divAlineado">
+				<h3 class="blanco">Contacto</h3>
+				<div class="agileinfo-social-grids">
+					<h5 color="white">Escríbenos a nuestro WhatsApp</h5>
+					<p class="fa fa-whatsapp">606929737</p>
+					<h5>Mándanos un correo</h5>
+					<p>editory.video@gmail.com</p>
+				</div>
+				<br></br> <br></br>
+			</div>
 			<p>© 2017 Editory Web. All rights reserved</p>
 		</div>
 	</div>
